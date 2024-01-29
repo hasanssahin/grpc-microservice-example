@@ -1,0 +1,22 @@
+syntax="proto3";
+option java_multiple_files=true;
+package com.hasansahin.grpc;
+
+service DiscountService {
+  rpc applyDiscount(DiscountRequest) returns (DiscountResponse);
+}
+
+message DiscountRequest{
+  string code=1;
+  float price=2;
+  string categoryUuid=3;
+}
+
+message DiscountResponse{
+  string code=2;
+  float newPrice=3;
+  float oldPrice=4;
+  float appliedDiscount=5;
+  bool result=1;
+  string message=6;
+}
